@@ -19,7 +19,7 @@ export default function Home() {
     navigate(`/post/${postID}`);
   }
 
-  function handleCopyClipboard(postID) {
+  function handleCopyClipboard(postID) {  
     setIsId(postID);
     navigator.clipboard.writeText(`${backendURL}/post/${postID}`)
     .then(() => {

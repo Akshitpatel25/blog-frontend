@@ -6,7 +6,7 @@ const usePosts = create(
   devtools(
     persist(
       (set) => ({
-        posts: null, 
+        posts: [], 
         fetchPosts: async () => {
           const allPosts = await getAllPosts();
           set({ posts: allPosts }); 
