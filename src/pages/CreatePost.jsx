@@ -27,7 +27,11 @@ export default function CreatePost() {
         day: "2-digit",
         month: "2-digit",
       });
-      const fullURL = new URL("get-all-posts/", backendURL).href;
+    console.log(postData);
+
+      const fullURL = new URL("create-post", backendURL).href;
+      console.log(fullURL);
+      
         const res = await fetch(fullURL, {
             method: 'POST',
             headers: {
