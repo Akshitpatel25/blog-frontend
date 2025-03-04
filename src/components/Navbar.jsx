@@ -1,6 +1,6 @@
 import useTheme from "../zustand/them";
 import Switch from "./Switch";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useUser from "../zustand/getUserByToken";
 
 export default function Navbar() {
@@ -27,10 +27,8 @@ export default function Navbar() {
                     {
                         user ? (
                             <>
-                            <button
-                            onClick={() => {
-                                navigate('/profile')
-                            }}
+                            <Link to="/profile"
+                            
                             className="cursor-pointer"
                             >
                                 <img 
@@ -38,22 +36,20 @@ export default function Navbar() {
                                 className={`w-8 ${theme ? 'invert' : ''}`}
                                 src="/userIcon1.png" 
                                 alt="login" />
-                            </button>
+                            </Link>
                             </>
                         ):(
                             <>
-                            <button
+                            <Link to="/signin"
                             className="cursor-pointer"
-                            onClick={() => {
-                                navigate('/signin')
-                            }}
+                            
                             >
                                 <img 
                                 title="Login"
                                 className={`w-8 ${theme ? 'invert' : ''}`}
                                 src="/icons8-login-100.png" 
                                 alt="login" />
-                            </button>
+                            </Link>
                             </>
 
                         )

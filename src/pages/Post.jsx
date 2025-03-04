@@ -1,10 +1,8 @@
 import useTheme from "../zustand/them";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import useUser from "../zustand/getUserByToken";
 
 export default function Post() {
-  const { user } = useUser();
   const { theme } = useTheme();
   const params = useParams();
   const [post, setpost] = useState({
@@ -18,11 +16,7 @@ export default function Post() {
   });
   const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
 
-  useEffect(() => {
-    if (user === null) {
-      window.location.href = "/";
-    }
-  }, []);
+  
 
   useEffect(() => {
     async function fetchPost() {
