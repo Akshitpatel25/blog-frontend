@@ -11,6 +11,7 @@ export default function Home() {
   const { posts } = usePosts();
   const [iscopy, setIsCopy] = useState(false);
   const [isId, setIsId] = useState("");
+  const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
 
   // console.log(user);
 
@@ -20,7 +21,7 @@ export default function Home() {
 
   function handleCopyClipboard(postID) {
     setIsId(postID);
-    navigator.clipboard.writeText(`http://localhost:5173/post/${postID}`)
+    navigator.clipboard.writeText(`${backendURL}/post/${postID}`)
     .then(() => {
       setIsCopy((prev) => !prev);
       setTimeout(() => {
