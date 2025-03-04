@@ -1,10 +1,9 @@
 import useTheme from "../zustand/them";
 import Switch from "./Switch";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useUser from "../zustand/getUserByToken";
 
 export default function Navbar() {
-    const navigate = useNavigate();
     const {theme} = useTheme();
     const {user} = useUser();
 

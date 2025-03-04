@@ -15,62 +15,25 @@ const CreatePost = lazy(() => import("./pages/CreatePost.jsx"))
 const Post = lazy(() => import("./pages/Post.jsx"))
 const Myposts = lazy(() => import("./pages/Myposts.jsx"))
 
-const website_routes = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    children: [
-      {
-        path: '/',
-        element: (
-          <Suspense fallback={<Sk_homepage />}>
-            <Home />
-          </Suspense>
-        )
-      },
-      {
-        path: '/profile',
-        element: (
-          <Suspense fallback={<SkeletonLoader />}>
-            <Profile />
-          </Suspense>
-        )
-      },
-      {
-        path: '/create-post',
-        element: (
-          <Suspense fallback={<Sk_createpost />}>
-            <CreatePost/>
-          </Suspense>
-        )
-      },
-      {
-        path: '/post/:id',
-        element: (
-          <Suspense fallback={<Sk_post />}>
-            <Post/>
-          </Suspense>
-        )
-      },
-      {
-        path: '/my-posts/:id',
-        element: (
-          <Suspense fallback={<SkeletonLoader />}>
-            <Myposts />
-          </Suspense>
-        )
-      }
-    ],
-  },
-  {
-    path: '/signin',
-    element: <Signin />,
-  },
-  {
-    path: '/signup',
-    element: <Signup />,
-  }
-])
+const website_routes = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+      children: [
+        { path: '/', element: <Suspense fallback={<Sk_homepage />}><Home /></Suspense> },
+        { path: '/profile', element: <Suspense fallback={<SkeletonLoader />}><Profile /></Suspense> },
+        { path: '/create-post', element: <Suspense fallback={<Sk_createpost />}><CreatePost /></Suspense> },
+        { path: '/post/:id', element: <Suspense fallback={<Sk_post />}><Post /></Suspense> },
+        { path: '/my-posts/:id', element: <Suspense fallback={<SkeletonLoader />}><Myposts /></Suspense> }
+      ],
+    },
+    { path: '/signin', element: <Signin /> },
+    { path: '/signup', element: <Signup /> },
+  ],
+  { basename: import.meta.env.VITE_BASENAME || "/" } // Set base path dynamically
+);
+
 
 createRoot(document.getElementById('root')).render(
   
