@@ -36,7 +36,7 @@ export default function Myposts() {
   const handleDelete = async (id) => {
     async function deletePost() {
         const res = await fetch(`${backendURL}/delete-post`, {
-            method: 'DELETE',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
