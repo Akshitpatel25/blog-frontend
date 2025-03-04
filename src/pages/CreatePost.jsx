@@ -28,7 +28,7 @@ export default function CreatePost() {
         month: "2-digit",
       });
         
-        const res = await fetch(`${backendURL}/create-post`, {
+        const res = await fetch(`${backendURL}create-post`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

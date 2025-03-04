@@ -26,7 +26,7 @@ export default function Post() {
 
   useEffect(() => {
     async function fetchPost() {
-      const res = await fetch(`${backendURL}/get-post/${params.id}`, {
+      const res = await fetch(`${backendURL}get-post/${params.id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
