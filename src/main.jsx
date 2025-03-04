@@ -32,7 +32,6 @@ const website_routes = createBrowserRouter(
 
     { path: '/signup', element: <Signup /> }
   ],
-  { basename: import.meta.env.VITE_BASENAME || "/" } // Set base path dynamically
 );
 
 
