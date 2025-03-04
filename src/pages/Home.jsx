@@ -43,7 +43,8 @@ export default function Home() {
       >
         <div className="w-full h-fit overflow-auto p-4 mt-20 mb-20 ">
           <div className="flex flex-col gap-y-3">
-            {posts && posts.posts.length > 0 ? (
+            {
+            // posts && posts.posts.length > 0 ? (
               posts.posts.slice().reverse().map((item) => (
                 <div key={item._id} className={`
                 ${theme ? 'bg-gray-900' : 'bg-gray-100'}
@@ -87,9 +88,8 @@ export default function Home() {
                   </div>
                 </div>
               ))
-            ) : (
-              <p>No posts available</p>
-            )}
+            }
+            
           </div>
 
           
