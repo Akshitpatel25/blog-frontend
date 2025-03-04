@@ -79,7 +79,7 @@ export default function Home() {
                   </div>
                   <div
                       onClick={() => handleShare(item._id)}
-                  
+                      className="cursor-pointer"
                   >
                     <div className="font-bold ">{item.title} </div>
                     <div className="h-fit">{item.discription}</div>
