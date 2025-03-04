@@ -10,7 +10,9 @@ const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
 
 
     const handleLogout = async() => {
-        const res = await fetch(`${backendURL}logout`,{
+      const fullURL = new URL(`logout`, backendURL).href;
+
+        const res = await fetch( fullURL,{
             method: 'GET',
             credentials: 'include',
             headers: {

@@ -1,7 +1,9 @@
 const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
 
 export default async function getUser() {
-    const res = await fetch(`${backendURL}get-token`,{
+    const fullURL = new URL(`get-token`, backendURL).href;
+
+    const res = await fetch(fullURL,{
         method: 'GET',
         credentials: 'include',
         headers: {

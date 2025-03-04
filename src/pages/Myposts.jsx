@@ -18,8 +18,10 @@ export default function Myposts() {
 
   useEffect(() => {
     async function fetchAllUserPosts() {
+      const fullURL = new URL(`get-all-userPosts/${params.id}`, backendURL).href;
+
       const res = await fetch(
-        `${backendURL}get-all-userPosts/${params.id}`,
+        fullURL,
         {
           method: "GET",
           headers: {
@@ -35,7 +37,9 @@ export default function Myposts() {
 
   const handleDelete = async (id) => {
     async function deletePost() {
-        const res = await fetch(`${backendURL}delete-post`, {
+      const fullURL = new URL(`delete-post`, backendURL).href;
+
+        const res = await fetch(fullURL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

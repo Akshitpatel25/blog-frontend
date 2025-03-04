@@ -21,7 +21,9 @@ export default function Home() {
 
   function handleCopyClipboard(postID) {  
     setIsId(postID);
-    navigator.clipboard.writeText(`${backendURL}post/${postID}`)
+    const fullURL = new URL(`post/${postID}`, backendURL).href;
+
+    navigator.clipboard.writeText(fullURL)
     .then(() => {
       setIsCopy((prev) => !prev);
       setTimeout(() => {

@@ -27,8 +27,8 @@ export default function CreatePost() {
         day: "2-digit",
         month: "2-digit",
       });
-        
-        const res = await fetch(`${backendURL}create-post`, {
+      const fullURL = new URL("get-all-posts/", backendURL).href;
+        const res = await fetch(fullURL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

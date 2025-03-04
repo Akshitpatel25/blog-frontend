@@ -33,7 +33,9 @@ const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
       return;
     }
     try {
-      const res = await fetch(`${backendURL}signup`, {
+      const fullURL = new URL(`signup`, backendURL).href;
+
+      const res = await fetch(fullURL, {
         method: "POST",
         credentials: "include",
         headers: {

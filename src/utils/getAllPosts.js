@@ -1,7 +1,9 @@
 const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
 
 export async function getAllPosts() {
-    const res = await fetch(`${backendURL}get-all-posts`, {
+    const fullURL = new URL(`get-all-posts`, backendURL).href;
+
+    const res = await fetch(fullURL, {
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json'
