@@ -11,7 +11,6 @@ export default function Home() {
   const { posts } = usePosts();
   const [iscopy, setIsCopy] = useState(false);
   const [isId, setIsId] = useState("");
-  const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
 
   // console.log(user);
 
@@ -21,8 +20,8 @@ export default function Home() {
 
   function handleCopyClipboard(postID) {  
     setIsId(postID);
-    const fullURL = new URL(`post/${postID}`, backendURL).href;
-
+    const fullURL = new URL(`post/${postID}`, 'https://wwwblogak.vercel.app/').href;
+    console.log(fullURL);
     navigator.clipboard.writeText(fullURL)
     .then(() => {
       setIsCopy((prev) => !prev);
