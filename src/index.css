@@ -14,9 +14,9 @@ body {
   }
   
   .skeleton-glance {
-    background: linear-gradient(90deg, #e0e0e0 25%, #565454 50%, #e0e0e0 75%);
+    background: linear-gradient(110deg, #e0e0e0 25%, #928989 50%, #e0e0e0 75%);
     background-size: 200px 100%;
-    animation: glance 1.5s infinite;
+    animation: glance 2s infinite;
   }
   
   .form {

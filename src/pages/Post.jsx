@@ -16,8 +16,6 @@ export default function Post() {
   });
   const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
 
-  
-
   useEffect(() => {
     async function fetchPost() {
       const fullURL = new URL(`get-post/${params.id}`, backendURL).href;
@@ -94,7 +92,14 @@ export default function Post() {
           </>
         ) : (
           <>
-            <h1>Post not fount</h1>
+            <div
+              className={`w-screen h-screen pt-20 flex flex-col gap-y-6 p-4 ${
+                theme ? "bg-black" : "bg-white"
+              }`}
+            >
+              <div className="h-60 w-full bg-gray-300 rounded-lg skeleton-glance"></div>
+
+            </div>
           </>
         )}
       </div>

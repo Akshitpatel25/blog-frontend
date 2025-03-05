@@ -34,7 +34,7 @@ const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
     }
     try {
       const fullURL = new URL(`signin`, backendURL).href;
-
+      console.log(fullURL);
       const res = await fetch(fullURL, {
         method: "POST",
         credentials: "include",

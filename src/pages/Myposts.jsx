@@ -9,9 +9,12 @@ export default function Myposts() {
   const [allUserPosts, setAllUserPosts] = useState([]);
   const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
   const { user } = useUser();
+  const [iscopy, setIsCopy] = useState(false);
+  const [isId, setIsId] = useState("");
+  const frontendURL = import.meta.env.VITE_FRONTEND_DOMAIN;
 
   useEffect(() => {
-    if (user === null) {
+    if (user._id !== params.id) {
       window.location.href = '/';
     }
   },[])
@@ -58,6 +61,22 @@ export default function Myposts() {
     deletePost();
   }
 
+  function handleCopyClipboard(postID) {  
+    setIsId(postID);
+    const fullURL = new URL(`post/${postID}`, `${frontendURL}`).href;
+    console.log(fullURL);
+    navigator.clipboard.writeText(fullURL)
+    .then(() => {
+      setIsCopy((prev) => !prev);
+      setTimeout(() => {
+        setIsCopy((prev) => !prev);
+      }, 2000);
+    })
+    .catch((error) => {
+      alert("Cannot able to Copy",error);
+    });
+  }
+
   return (
     <>
       <div
@@ -89,7 +108,22 @@ export default function Myposts() {
                         <p>@{post.username}</p>
                       </div>
                     </div>
-                    <div className="pr-2">
+                    <div className="pr-2 flex items-center gap-x-2">
+                      {
+                        iscopy && isId == post._id ? (<>
+                            <img
+                      className={`w-7 h-7 cursor-pointer `} 
+                      src="/check.png" 
+                      alt="share" />
+                        </>):(<>
+                          <img
+                          onClick={() => handleCopyClipboard(post._id)}
+                          className={`w-7 h-7 cursor-pointer ${theme ? 'invert' : ''}`} 
+                          src="/shareImage.png" 
+                          alt="share" />
+                        </>)
+                      }
+                      
                       <img 
                       onClick={() => handleDelete(post._id)}
                       className="w-6 h-6 cursor-pointer"
