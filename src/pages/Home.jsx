@@ -2,13 +2,13 @@ import useTheme from "../zustand/them";
 import useUser from "../zustand/getUserByToken";
 import { useNavigate } from "react-router-dom";
 import { usePosts } from "../zustand/getAllPosts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const navigate = useNavigate();
   const { theme } = useTheme();
   const { user } = useUser();
-  const { posts } = usePosts();
+  const { posts,fetchPosts } = usePosts();
   const [iscopy, setIsCopy] = useState(false);
   const [isId, setIsId] = useState("");
   const frontendURL = import.meta.env.VITE_FRONTEND_DOMAIN;
@@ -32,6 +32,10 @@ export default function Home() {
       alert("Cannot able to Copy",error);
     });
   }
+
+  useEffect(() => {
+    fetchPosts();
+  },[])
   
   return (
     <>
@@ -85,7 +89,9 @@ export default function Home() {
                   >
                     <div className="font-bold ">{item.title} </div>
                     <div className="h-fit">{item.discription}</div>
+                    <div>💬 {item.comments.length}</div>
                   </div>
+                  
                 </div>
               ))
             ) : (

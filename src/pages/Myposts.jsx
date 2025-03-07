@@ -39,26 +39,29 @@ export default function Myposts() {
   }, []);
 
   const handleDelete = async (id) => {
-    async function deletePost() {
-      const fullURL = new URL(`delete-post`, backendURL).href;
-
-        const res = await fetch(fullURL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: id
-            })
-        })
-        const response = await res.json()
-        if (response.message == 'success') {
-          window.location.reload()
-        }else {
-            alert(response.message)
-        }
+    if (confirm("Are you sure you want to delete?")) {
+      async function deletePost() {
+        const fullURL = new URL(`delete-post`, backendURL).href;
+  
+          const res = await fetch(fullURL, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  id: id
+              })
+          })
+          const response = await res.json()
+          if (response.message == 'success') {
+            window.location.reload()
+          }else {
+              alert(response.message)
+          }
+      }
+      deletePost();
     }
-    deletePost();
+    
   }
 
   function handleCopyClipboard(postID) {  
@@ -149,6 +152,9 @@ export default function Myposts() {
                     <span className="font-thin">Discription: </span>
                     {post.discription}
                   </p>
+                  <img
+                  className="w-40 h-40 rounded-lg" 
+                  src={post.imageID} alt="post image" />
                 </div>
               </div>
             

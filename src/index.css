@@ -120,3 +120,22 @@ body {
     color: var(--font-color);
     cursor: pointer;
   }
+
+
+  .skeleton-glance-text {
+    display: inline-block;
+    background: linear-gradient(90deg, transparent, rgb(115, 102, 102), transparent);
+    background-size: 200% 1%;
+    animation: glancetext 2.5s infinite linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  @keyframes glancetext {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }

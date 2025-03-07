@@ -45,6 +45,11 @@ const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
                 className="cursor-pointer w-fit h-fit p-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 to={`/my-posts/${user._id}`}
                 >My Posts</Link>
+
+                <Link
+                className="cursor-pointer w-fit h-fit p-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                to={`/my-comments/${user._id}`}
+                >My Comments</Link>
             </div>
         </>
     )

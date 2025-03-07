@@ -14,6 +14,7 @@ const Signup = lazy(() => import('./pages/Signup.jsx'));
 const CreatePost = lazy(() => import("./pages/CreatePost.jsx"))
 const Post = lazy(() => import("./pages/Post.jsx"))
 const Myposts = lazy(() => import("./pages/Myposts.jsx"))
+const MyComments = lazy(() => import("./pages/MyComments.jsx"))
 
 const website_routes = createBrowserRouter(
   [
@@ -25,7 +26,8 @@ const website_routes = createBrowserRouter(
         { path: '/profile', element: <Suspense fallback={<SkeletonLoader />}><Profile /></Suspense> },
         { path: '/create-post', element: <Suspense fallback={<Sk_createpost />}><CreatePost /></Suspense> },
         { path: '/post/:id', element: <Suspense fallback={<Sk_post />}><Post /></Suspense> },
-        { path: '/my-posts/:id', element: <Suspense fallback={<SkeletonLoader />}><Myposts /></Suspense> }
+        { path: '/my-posts/:id', element: <Suspense fallback={<SkeletonLoader />}><Myposts /></Suspense> },
+        { path: '/my-comments/:id', element: <Suspense fallback={<SkeletonLoader />}><MyComments /></Suspense> }
       ],
     },
     { path: '/signin', element: <Signin /> },
