@@ -1,8 +1,16 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "rewrites": [
+    {
+      "source": "/signin",
+      "destination": "https://seal-app-hmqiu.ondigitalocean.app/signin"
+    },
+    {
+      "source": "/signup",
+      "destination": "https://seal-app-hmqiu.ondigitalocean.app/signup"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
