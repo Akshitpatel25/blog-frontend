@@ -147,7 +147,7 @@ export default function Post() {
                   alt="post image"
                 />
 
-                <div>💬 {post.comments.length}</div>
+                <div>💬 {post?.comments?.length}</div>
 
                 {user != null ? (
                   <>
@@ -177,7 +177,7 @@ export default function Post() {
                   <></>
                 )}
                 <div className="w-full flex flex-col gap-y-2">
-                  {post.comments.length > 0 ? (
+                  {post?.comments?.length > 0 ? (
                     <>
                       {post.comments.slice().reverse().map((comment) => (
                         <div

@@ -89,7 +89,7 @@ export default function Home() {
                   >
                     <div className="font-bold ">{item.title} </div>
                     <div className="h-fit">{item.discription}</div>
-                    <div>💬 {item.comments.length}</div>
+                    <div>💬 {item?.comments?.length}</div>
                   </div>
                   
                 </div>

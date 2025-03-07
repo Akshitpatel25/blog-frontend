@@ -75,7 +75,7 @@ export default function MyComments() {
               theme ? "bg-black text-white" : "bg-white text-black"
             }`}
       >
-        {allUserComments.length > 0 ? (
+        {allUserComments?.length > 0 ? (
           <div className="p-2 flex flex-col gap-y-2">
             {allUserComments
               .slice()
