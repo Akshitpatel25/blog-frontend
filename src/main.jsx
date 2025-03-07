@@ -27,12 +27,11 @@ const website_routes = createBrowserRouter(
         { path: '/create-post', element: <Suspense fallback={<Sk_createpost />}><CreatePost /></Suspense> },
         { path: '/post/:id', element: <Suspense fallback={<Sk_post />}><Post /></Suspense> },
         { path: '/my-posts/:id', element: <Suspense fallback={<SkeletonLoader />}><Myposts /></Suspense> },
-        { path: '/my-comments/:id', element: <Suspense fallback={<SkeletonLoader />}><MyComments /></Suspense> }
+        { path: '/my-comments/:id', element: <Suspense fallback={<SkeletonLoader />}><MyComments /></Suspense> },
+        {path: '/signin', element: <Signin />},
+        {path: '/signup', element: <Signup />}
       ],
     },
-    { path: '/signin', element: <Signin /> },
-
-    { path: '/signup', element: <Signup /> }
   ],
 );
 
