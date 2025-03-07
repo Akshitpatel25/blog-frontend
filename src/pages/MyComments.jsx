@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import useTheme from "../zustand/them";
-import { useParams } from "react-router-dom";
 import useUser from "../zustand/getUserByToken";
-import Post from "./Post";
 
 export default function MyComments() {
   const { theme } = useTheme();
-  const params = useParams();
   const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
   const { user } = useUser();
   const [allUserComments, setAllUserComments] = useState([]);
