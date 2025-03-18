@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useUser from "../zustand/getUserByToken";
 import useTheme from "../zustand/them";
 import { Link } from "react-router-dom";
@@ -24,6 +25,12 @@ const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
             window.location.href = '/';
         }
     }
+
+    useEffect(() => {
+        if (!user?._id) {
+            window.location.href = '/';
+        }
+    },[])
 
     
 

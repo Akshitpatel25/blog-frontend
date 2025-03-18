@@ -35,7 +35,6 @@ export default function Home() {
 
   useEffect(() => {
     fetchPosts();
-    window.location.reload();
   },[])
   
   return (
