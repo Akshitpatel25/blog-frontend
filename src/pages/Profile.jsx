@@ -14,7 +14,7 @@ const backendURL = import.meta.env.VITE_BACKEND_DOMAIN;
       const fullURL = new URL(`logout`, backendURL).href;
 
         const res = await fetch( fullURL,{
-            method: 'POSTgit',
+            method: 'GET',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
