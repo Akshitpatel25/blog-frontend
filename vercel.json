@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/signin",
-      "destination": "https://seal-app-hmqiu.ondigitalocean.app/signin"
+      "destination": "https://wwwblogak.vercel.app/signin"
     },
     {
       "source": "/signup",
-      "destination": "https://seal-app-hmqiu.ondigitalocean.app/signup"
+      "destination": "https://wwwblogak.vercel.app/signup"
     },
     {
       "source": "/(.*)",
